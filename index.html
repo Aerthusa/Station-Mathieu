@@ -2,11 +2,12 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Station Mathieu</title>
+
+<meta name="theme-color" content="#2F80ED">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,196 +22,212 @@
 
 <header class="topbar">
 
-<h1>Station Mathieu</h1>
+    <div class="logo">
 
-<button id="gpsButton">
-📍
-</button>
+        <div class="logo-icon">☀️</div>
+
+        <div>
+
+            <h1>Station Mathieu</h1>
+
+            <span class="subtitle">
+                Powered by Open-Meteo
+            </span>
+
+        </div>
+
+    </div>
+
+    <button id="gpsButton" class="iconButton">
+        📍
+    </button>
 
 </header>
 
-<section class="search">
+<section class="searchBar">
 
-<input
-id="citySearch"
-type="text"
-placeholder="Rechercher une ville...">
+    <input
+        id="citySearch"
+        type="text"
+        placeholder="Rechercher une ville...">
 
-<button id="favoriteButton">
+    <button
+        id="favoriteButton"
+        class="favoriteButton">
 
-⭐
+        ⭐
 
-</button>
+    </button>
 
 </section>
+
+<div id="searchResults"></div>
 
 <main>
 
-<section class="weather-card">
+<section class="weatherCard">
 
-<h2 id="cityName">
+    <div class="weatherHeader">
 
-Ma position
+        <div>
 
-</h2>
+            <h2 id="cityName">
 
-<div class="temperature">
+                Ma position
 
-<span id="temperature">
+            </h2>
 
---°
+            <p id="lastUpdate">
 
-</span>
+                Mise à jour...
 
-</div>
+            </p>
 
-<div id="description">
+        </div>
 
-Chargement...
+        <div id="weatherIcon">
 
-</div>
+            ☀️
 
-<div class="weather-grid">
+        </div>
 
-<div class="weather-item">
+    </div>
 
-<div class="label">
+    <div
+        class="temperature"
+        id="temperature">
 
-💧 Humidité
+        --°
 
-</div>
+    </div>
 
-<div
-class="value"
-id="humidity">
+    <div
+        id="description"
+        class="description">
 
---
+        Chargement...
 
-</div>
+    </div>
 
-</div>
+    <div class="weatherGrid">
 
-<div class="weather-item">
+        <div class="infoCard">
 
-<div class="label">
+            <div class="infoLabel">
 
-🌬 Vent
+                💧 Humidité
 
-</div>
+            </div>
 
-<div
-class="value"
-id="wind">
+            <div
+                id="humidity"
+                class="infoValue">
 
---
+                --
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="weather-item">
+        <div class="infoCard">
 
-<div class="label">
+            <div class="infoLabel">
 
-🧭 Direction
+                🌬 Vent
 
-</div>
+            </div>
 
-<div
-class="value"
-id="windDirection">
+            <div
+                id="wind"
+                class="infoValue">
 
---
+                --
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="weather-item">
+        <div class="infoCard">
 
-<div class="label">
+            <div class="infoLabel">
 
-📈 Pression
+                🧭 Direction
 
-</div>
+            </div>
 
-<div
-class="value"
-id="pressure">
+            <div
+                id="windDirection"
+                class="infoValue">
 
---
+                --
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div class="infoCard">
+
+            <div class="infoLabel">
+
+                📈 Pression
+
+            </div>
+
+            <div
+                id="pressure"
+                class="infoValue">
+
+                --
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section class="forecast-card">
+<section class="forecastCard">
 
 <h2>
 
-6 prochaines heures
+🕕 Les 6 prochaines heures
 
 </h2>
 
 <div
 id="hourlyForecast"
-class="forecast-scroll">
+class="hourlyForecast">
 
 </div>
 
 </section>
 
-<section class="forecast-card">
+<section class="forecastCard">
 
 <h2>
 
-Cartes météo
+📅 Prévisions 7 jours
 
 </h2>
 
-<div class="map-list">
-
-<button class="mapButton">
-
-🌧 Radar Europe
-
-</button>
-
-<button class="mapButton">
-
-⚡ Impact Orages
-
-</button>
-
-<button class="mapButton">
-
-💨 Animation Vent
-
-</button>
-
-<button class="mapButton">
-
-🌩 Activité électrique
-
-</button>
+<div
+id="dailyForecast">
 
 </div>
 
 </section>
 
-<section class="forecast-card">
+<section class="forecastCard">
 
 <h2>
 
-Favoris
+⭐ Favoris
 
 </h2>
 
-<div id="favorites">
+<div
+id="favorites">
 
 Aucun favori.
 
@@ -218,11 +235,89 @@ Aucun favori.
 
 </section>
 
+<!-- CONTINUE DANS LA PARTIE 2 --><section class="forecastCard">
+
+<h2>
+
+🛰 Cartes météo
+
+</h2>
+
+<div class="mapsGrid">
+
+<button class="mapCard" onclick="openMap('radar')">
+
+🌧️
+
+<span>Radar Europe</span>
+
+</button>
+
+<button class="mapCard" onclick="openMap('wind')">
+
+💨
+
+<span>Vent</span>
+
+</button>
+
+<button class="mapCard" onclick="openMap('storm')">
+
+⛈️
+
+<span>Orages</span>
+
+</button>
+
+<button class="mapCard" onclick="openMap('lightning')">
+
+⚡
+
+<span>Foudre</span>
+
+</button>
+
+</div>
+
+</section>
+
 </main>
 
-<nav class="bottomNav">
+<div id="mapModal" class="mapModal">
 
-<button>
+<div class="mapHeader">
+
+<h2 id="mapTitle">
+
+Carte météo
+
+</h2>
+
+<button onclick="closeMap()">
+
+✕
+
+</button>
+
+</div>
+
+<div class="mapContent">
+
+<iframe
+id="mapFrame"
+src=""
+loading="lazy"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+
+<nav class="bottomBar">
+
+<button class="active">
 
 🏠
 
@@ -230,7 +325,7 @@ Accueil
 
 </button>
 
-<button>
+<button onclick="document.querySelector('.mapsGrid').scrollIntoView({behavior:'smooth'})">
 
 🛰
 
@@ -238,7 +333,7 @@ Cartes
 
 </button>
 
-<button>
+<button onclick="document.getElementById('favorites').scrollIntoView({behavior:'smooth'})">
 
 ⭐
 
