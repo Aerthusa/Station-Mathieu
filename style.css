@@ -1,6 +1,8 @@
-/* ==========================
-   Station Mathieu v2
-========================== */
+
+/* =======================================
+   STATION MATHIEU
+   v2
+=======================================*/
 
 *{
 margin:0;
@@ -8,25 +10,36 @@ padding:0;
 box-sizing:border-box;
 }
 
+:root{
+
+--blue:#2F80ED;
+--light:#EEF3F8;
+--card:#FFFFFF;
+--text:#233142;
+--secondary:#74808F;
+--shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
 body{
 
 font-family:"Inter",sans-serif;
-background:#eef3f8;
-color:#223548;
+
+background:var(--light);
+
+color:var(--text);
 
 padding-bottom:90px;
 
 }
 
-/* ==========================
-HEADER
-========================== */
+/* HEADER */
 
 .topbar{
 
-height:65px;
-
 background:white;
+
+padding:16px;
 
 display:flex;
 
@@ -34,49 +47,67 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:18px;
-
 position:sticky;
 
 top:0;
 
-box-shadow:0 2px 8px rgba(0,0,0,.08);
-
 z-index:100;
+
+box-shadow:var(--shadow);
 
 }
 
-.topbar h1{
+.logo{
+
+display:flex;
+
+gap:12px;
+
+align-items:center;
+
+}
+
+.logo-icon{
+
+font-size:34px;
+
+}
+
+.logo h1{
 
 font-size:24px;
 
-font-weight:700;
+}
+
+.subtitle{
+
+font-size:13px;
+
+color:var(--secondary);
 
 }
 
-.topbar button{
+.iconButton{
 
-width:42px;
+width:46px;
 
-height:42px;
+height:46px;
 
 border:none;
 
-background:#2f80ed;
+border-radius:50%;
+
+background:var(--blue);
 
 color:white;
-
-border-radius:50%;
 
 font-size:20px;
 
 }
 
-/* ==========================
-SEARCH
-========================== */
+/* SEARCH */
 
-.search{
+.searchBar{
 
 display:flex;
 
@@ -86,70 +117,76 @@ padding:16px;
 
 }
 
-.search input{
+.searchBar input{
 
 flex:1;
 
 padding:15px;
 
-font-size:16px;
-
 border-radius:14px;
 
-border:1px solid #d7dde7;
+border:1px solid #D8DEE8;
 
-background:white;
+font-size:16px;
 
 outline:none;
 
 }
 
-.search input:focus{
+.favoriteButton{
 
-border-color:#2f80ed;
-
-}
-
-.search button{
-
-width:52px;
+width:55px;
 
 border:none;
 
-background:white;
-
 border-radius:14px;
+
+background:white;
 
 font-size:22px;
 
-box-shadow:0 3px 10px rgba(0,0,0,.08);
+box-shadow:var(--shadow);
 
 }
 
-/* ==========================
-CARDS
-========================== */
+/* CARDS */
 
-.weather-card,
-.forecast-card{
+.weatherCard,
+.forecastCard{
+
+background:white;
 
 margin:16px;
 
 padding:20px;
 
-background:white;
+border-radius:24px;
 
-border-radius:22px;
-
-box-shadow:0 6px 20px rgba(0,0,0,.08);
+box-shadow:var(--shadow);
 
 }
 
-.weather-card h2{
+.weatherHeader{
 
-font-size:24px;
+display:flex;
 
-margin-bottom:10px;
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.weatherHeader h2{
+
+font-size:26px;
+
+}
+
+#weatherIcon{
+
+font-size:48px;
 
 }
 
@@ -159,29 +196,109 @@ font-size:72px;
 
 font-weight:700;
 
-color:#2f80ed;
+color:var(--blue);
+
+}
+
+.description{
 
 margin-top:10px;
+
+font-size:18px;
+
+color:var(--secondary);
+
+}
+
+/* GRID */
+
+.weatherGrid{
+
+margin-top:25px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px;
+
+}
+
+.infoCard{
+
+background:#F8FAFD;
+
+padding:16px;
+
+border-radius:18px;
+
+}
+
+.infoLabel{
+
+font-size:13px;
+
+color:var(--secondary);
 
 margin-bottom:8px;
 
 }
 
-#description{
+.infoValue{
 
-font-size:18px;
+font-size:22px;
 
-color:#6c7a8b;
-
-margin-bottom:20px;
+font-weight:600;
 
 }
 
-/* ==========================
-GRID
-========================== */
+/* HOURS */
 
-.weather-grid{
+.hourlyForecast{
+
+display:flex;
+
+overflow-x:auto;
+
+gap:14px;
+
+padding-top:10px;
+
+}
+
+.hourCard{
+
+min-width:90px;
+
+background:#F6F8FC;
+
+padding:16px;
+
+border-radius:18px;
+
+text-align:center;
+
+}
+
+.hourCard h3{
+
+font-size:16px;
+
+margin-bottom:8px;
+
+}
+
+.hourCard div{
+
+font-size:30px;
+
+margin:10px 0;
+
+}
+
+/* MAPS */
+
+.mapsGrid{
 
 display:grid;
 
@@ -189,20 +306,164 @@ grid-template-columns:1fr 1fr;
 
 gap:15px;
 
-}
-
-.weather-item{
-
-background:#f7f9fc;
-
-border-radius:16px;
-
-padding:16px;
+margin-top:20px;
 
 }
 
-.label{
+.mapCard{
 
-font-size:13px;
+border:none;
 
-color:#7d8b
+background:#2F80ED;
+
+color:white;
+
+padding:22px;
+
+border-radius:18px;
+
+font-size:18px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+align-items:center;
+
+}
+
+/* FAVORITES */
+
+.favorite{
+
+background:#F7F9FC;
+
+padding:14px;
+
+border-radius:14px;
+
+margin-bottom:10px;
+
+}
+
+/* MAP MODAL */
+
+.mapModal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:white;
+
+z-index:999;
+
+}
+
+.mapHeader{
+
+height:65px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+box-shadow:var(--shadow);
+
+}
+
+.mapHeader button{
+
+border:none;
+
+background:none;
+
+font-size:28px;
+
+}
+
+.mapContent{
+
+height:calc(100vh - 65px);
+
+}
+
+.mapContent iframe{
+
+width:100%;
+
+height:100%;
+
+border:none;
+
+}
+
+/* BOTTOM */
+
+.bottomBar{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+right:0;
+
+height:72px;
+
+background:white;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+.bottomBar button{
+
+background:none;
+
+border:none;
+
+display:flex;
+
+flex-direction:column;
+
+gap:5px;
+
+font-size:15px;
+
+}
+
+.bottomBar .active{
+
+color:var(--blue);
+
+font-weight:600;
+
+}
+
+@media(min-width:800px){
+
+main{
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+}
