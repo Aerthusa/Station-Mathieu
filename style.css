@@ -1,0 +1,208 @@
+/* ==========================
+   Station Mathieu v2
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:"Inter",sans-serif;
+background:#eef3f8;
+color:#223548;
+
+padding-bottom:90px;
+
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.topbar{
+
+height:65px;
+
+background:white;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+position:sticky;
+
+top:0;
+
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+z-index:100;
+
+}
+
+.topbar h1{
+
+font-size:24px;
+
+font-weight:700;
+
+}
+
+.topbar button{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+background:#2f80ed;
+
+color:white;
+
+border-radius:50%;
+
+font-size:20px;
+
+}
+
+/* ==========================
+SEARCH
+========================== */
+
+.search{
+
+display:flex;
+
+gap:10px;
+
+padding:16px;
+
+}
+
+.search input{
+
+flex:1;
+
+padding:15px;
+
+font-size:16px;
+
+border-radius:14px;
+
+border:1px solid #d7dde7;
+
+background:white;
+
+outline:none;
+
+}
+
+.search input:focus{
+
+border-color:#2f80ed;
+
+}
+
+.search button{
+
+width:52px;
+
+border:none;
+
+background:white;
+
+border-radius:14px;
+
+font-size:22px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.weather-card,
+.forecast-card{
+
+margin:16px;
+
+padding:20px;
+
+background:white;
+
+border-radius:22px;
+
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+}
+
+.weather-card h2{
+
+font-size:24px;
+
+margin-bottom:10px;
+
+}
+
+.temperature{
+
+font-size:72px;
+
+font-weight:700;
+
+color:#2f80ed;
+
+margin-top:10px;
+
+margin-bottom:8px;
+
+}
+
+#description{
+
+font-size:18px;
+
+color:#6c7a8b;
+
+margin-bottom:20px;
+
+}
+
+/* ==========================
+GRID
+========================== */
+
+.weather-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+}
+
+.weather-item{
+
+background:#f7f9fc;
+
+border-radius:16px;
+
+padding:16px;
+
+}
+
+.label{
+
+font-size:13px;
+
+color:#7d8b
